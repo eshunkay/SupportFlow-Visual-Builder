@@ -4,8 +4,7 @@ async function loadFlow() {
     const data = await response.json();
 
     renderNodes(data.nodes);
-    drawConnections(data.nodes);
-
+    drawConnections(data.nodes); // 👈 draw AFTER nodes render
   } catch (error) {
     console.error("Error loading flow:", error);
   }
@@ -13,14 +12,14 @@ async function loadFlow() {
 
 function renderNodes(nodes) {
   const canvas = document.getElementById("canvas");
-  canvas.innerHTML = ""; // clear previous render
+  canvas.innerHTML = "";
 
   nodes.forEach(node => {
     const div = document.createElement("div");
     div.classList.add("node", node.type);
 
-    div.style.left = node.position.x + "px";
-    div.style.top = node.position.y + "px";
+    div.style.left = `${node.position.x}px`;
+    div.style.top = `${node.position.y}px`;
 
     const title = document.createElement("h4");
     title.textContent = node.text;
@@ -29,8 +28,16 @@ function renderNodes(nodes) {
     node.options.forEach(opt => {
       const option = document.createElement("div");
       option.classList.add("option");
-      option.textContent = "• " + opt.label;
+      option.textContent = `• ${opt.label}`;
       div.appendChild(option);
+    });
+
+    // Simple interactivity
+    div.addEventListener("click", () => {
+      document.querySelectorAll(".node").forEach(n => {
+        n.style.transform = "scale(1)";
+      });
+      div.style.transform = "scale(1.05)";
     });
 
     canvas.appendChild(div);
@@ -39,6 +46,8 @@ function renderNodes(nodes) {
 
 function drawConnections(nodes) {
   const svg = document.getElementById("connections");
+
+  // Reset SVG and define arrow marker
   svg.innerHTML = `
     <defs>
       <marker id="arrow" markerWidth="10" markerHeight="10"
@@ -55,7 +64,6 @@ function drawConnections(nodes) {
 
       const startX = node.position.x + 110;
       const startY = node.position.y + 90;
-
       const endX = target.position.x + 110;
       const endY = target.position.y;
 
@@ -77,5 +85,5 @@ function drawConnections(nodes) {
   });
 }
 
-
+// Initialize app
 loadFlow();
