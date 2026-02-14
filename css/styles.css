@@ -4,24 +4,54 @@ body {
   font-family: Arial, sans-serif;
 }
 
-#canvas {
+/* Canvas wrapper */
+#canvas-container {
   position: relative;
   width: 1200px;
   height: 800px;
   margin: 40px auto;
   background: #2a2a2a;
   border-radius: 10px;
+  overflow: hidden;
 }
 
+/* SVG connection layer */
+#connections {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* Nodes layer */
+#canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1200px;
+  height: 800px;
+  z-index: 2;
+}
+
+/* Node card */
 .node {
   position: absolute;
   width: 220px;
   padding: 15px;
   border-radius: 12px;
-  background: white;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
 }
 
+/* Hover / click feel */
+.node:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* Node types */
 .node.start {
   border-left: 6px solid #16A34A;
 }
@@ -34,37 +64,16 @@ body {
   border-left: 6px solid #DC2626;
 }
 
+/* Node text */
 .node h4 {
   margin: 0 0 10px 0;
   font-size: 14px;
+  color: #111827;
 }
 
+/* Options */
 .option {
   font-size: 13px;
   margin-top: 6px;
-  color: #333;
-}
-
-#canvas-container {
-  position: relative;
-  width: 1200px;
-  height: 800px;
-  margin: 40px auto;
-  background: #2a2a2a;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-#connections {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-
-#canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
+  color: #374151;
 }

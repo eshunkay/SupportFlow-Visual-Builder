@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>SupportFlow Visual Builder</title>
@@ -8,8 +8,21 @@
 <body>
 
   <div id="canvas-container">
-    <!-- SVG layer for lines -->
-    <svg id="connections" width="1200" height="800"></svg>
+    <!-- SVG layer for connections -->
+    <svg id="connections" width="1200" height="800">
+      <defs>
+        <marker
+          id="arrow"
+          markerWidth="10"
+          markerHeight="10"
+          refX="10"
+          refY="5"
+          orient="auto"
+        >
+          <path d="M0,0 L10,5 L0,10 Z" fill="#4B5563" />
+        </marker>
+      </defs>
+    </svg>
 
     <!-- Nodes layer -->
     <div id="canvas"></div>

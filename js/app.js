@@ -39,27 +39,43 @@ function renderNodes(nodes) {
 
 function drawConnections(nodes) {
   const svg = document.getElementById("connections");
-  svg.innerHTML = ""; // clear previous lines
+  svg.innerHTML = `
+    <defs>
+      <marker id="arrow" markerWidth="10" markerHeight="10"
+        refX="10" refY="5" orient="auto">
+        <path d="M0,0 L10,5 L0,10 Z" fill="#4B5563" />
+      </marker>
+    </defs>
+  `;
 
   nodes.forEach(node => {
     node.options.forEach(opt => {
       const target = nodes.find(n => n.id === opt.nextId);
       if (!target) return;
 
-      const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      const startX = node.position.x + 110;
+      const startY = node.position.y + 90;
 
-      line.setAttribute("x1", node.position.x + 110);
-      line.setAttribute("y1", node.position.y + 80);
+      const endX = target.position.x + 110;
+      const endY = target.position.y;
 
-      line.setAttribute("x2", target.position.x + 110);
-      line.setAttribute("y2", target.position.y);
+      const line = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "line"
+      );
 
-      line.setAttribute("stroke", "#888");
-      line.setAttribute("stroke-width", "2");
+      line.setAttribute("x1", startX);
+      line.setAttribute("y1", startY);
+      line.setAttribute("x2", endX);
+      line.setAttribute("y2", endY);
+      line.setAttribute("stroke", "#4B5563");
+      line.setAttribute("stroke-width", "3");
+      line.setAttribute("marker-end", "url(#arrow)");
 
       svg.appendChild(line);
     });
   });
 }
+
 
 loadFlow();
