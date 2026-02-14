@@ -7,7 +7,9 @@
 </head>
 <body>
 
+  <!-- Flow Canvas -->
   <div id="canvas-container">
+    
     <!-- SVG layer for connections -->
     <svg id="connections" width="1200" height="800">
       <defs>
@@ -26,8 +28,21 @@
 
     <!-- Nodes layer -->
     <div id="canvas"></div>
+
   </div>
 
+  <!-- Preview Button -->
+  <div style="text-align:center; margin-bottom: 20px;">
+    <button id="previewBtn">▶ Preview Flow</button>
+  </div>
+
+  <!-- Chat Preview Panel -->
+  <div id="chat-preview" class="hidden">
+    <div id="chat-log"></div>
+    <div id="chat-options"></div>
+  </div>
+
+  <!-- App Logic -->
   <script src="js/app.js"></script>
 </body>
 </html>

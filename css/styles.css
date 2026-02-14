@@ -2,56 +2,48 @@ body {
   margin: 0;
   background: #1e1e1e;
   font-family: Arial, sans-serif;
+  color: #fff;
 }
 
-/* Canvas wrapper */
+/* MAIN CANVAS */
 #canvas-container {
   position: relative;
   width: 1200px;
   height: 800px;
   margin: 40px auto;
   background: #2a2a2a;
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
 }
 
-/* SVG connection layer */
+/* SVG CONNECTION LAYER */
 #connections {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   z-index: 1;
 }
 
-/* Nodes layer */
+/* NODE LAYER */
 #canvas {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 1200px;
-  height: 800px;
+  inset: 0;
   z-index: 2;
 }
 
-/* Node card */
+/* NODES */
 .node {
   position: absolute;
   width: 220px;
   padding: 15px;
   border-radius: 12px;
   background: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  color: #000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
 }
 
-/* Hover / click feel */
-.node:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
-}
-
-/* Node types */
+/* NODE TYPES */
 .node.start {
   border-left: 6px solid #16A34A;
 }
@@ -64,16 +56,72 @@ body {
   border-left: 6px solid #DC2626;
 }
 
-/* Node text */
 .node h4 {
-  margin: 0 0 10px 0;
+  margin: 0 0 10px;
   font-size: 14px;
-  color: #111827;
 }
 
-/* Options */
+/* OPTIONS */
 .option {
   font-size: 13px;
   margin-top: 6px;
-  color: #374151;
+  color: #333;
+}
+
+/* PREVIEW BUTTON */
+#previewBtn {
+  background: #2563EB;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#previewBtn:hover {
+  background: #1D4ED8;
+}
+
+/* CHAT PREVIEW */
+#chat-preview {
+  width: 360px;
+  margin: 0 auto 40px;
+  background: #111;
+  border-radius: 12px;
+  padding: 15px;
+}
+
+.hidden {
+  display: none;
+}
+
+#chat-log {
+  max-height: 240px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+.chat-message {
+  background: #2a2a2a;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+#chat-options button {
+  width: 100%;
+  margin-top: 6px;
+  padding: 8px;
+  background: #22C55E;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #000;
+  font-size: 13px;
+}
+
+#chat-options button:hover {
+  background: #16A34A;
 }
