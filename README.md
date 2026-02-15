@@ -149,6 +149,29 @@ supportflow-visual-builder/
 - Zoom & pan
 - Export to chatbot platforms
 
+
+## ✨ Wildcard Feature — Live Flow Path Highlighting
+
+To enhance both usability and debugging, the application includes **Live Flow Path Highlighting** during Preview Mode.
+
+### What It Does
+
+- Highlights the currently active node on the canvas while the preview is running
+- Visually marks previously visited nodes to show the full conversation path
+- Keeps the editor and preview experiences connected in real time
+
+### Why This Matters
+
+For non-technical managers, understanding chatbot behavior is significantly easier when logic is visible rather than abstract.
+
+This feature:
+- Makes flow debugging intuitive
+- Helps identify incorrect branching or dead ends quickly
+- Bridges the gap between design-time configuration and runtime behavior
+
+By allowing users to *see* how the conversation flows as it runs, SupportFlow Visual Builder becomes easier to validate, debug, and trust before deployment.
+
+
 ## 👤 Author
 
 **Kelvin Eshun**
@@ -161,3 +184,4 @@ Built as a practical capstone project to demonstrate:
 - Clean JavaScript logic
 
 ---
+
