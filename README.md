@@ -54,6 +54,12 @@ A small but consistent design system was created in Figma:
 
 **Why Figma first?** Designing first helped prevent layout issues, logic confusion, and unnecessary rewrites during development.
 
+The full design system and flow planning were created in Figma.
+
+🔗 Figma Design File:
+https://www.figma.com/design/uWgY2JTCzmSqQ2u64tsWpV/SupportFlow-Visual-Builder-%E2%80%93-Design-System?node-id=0-1&t=qJPVCjyAW0E4bSco-1
+
+
 ### Phase 2 — Vanilla JavaScript Implementation
 
 The application was implemented using pure web technologies:
